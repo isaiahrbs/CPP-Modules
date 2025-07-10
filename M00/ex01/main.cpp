@@ -11,14 +11,16 @@ int main() {
 
         if (std::cin.eof())
             break;
-
         if (command == "ADD") {
             phoneBook.addContact();
-        } else if (command == "SEARCH") {
+        }
+        else if (command == "SEARCH") {
             phoneBook.searchContact();
-        } else if (command == "EXIT") {
+        }
+        else if (command == "EXIT") {
             break;
-        } else {
+        }
+        else {
             std::cout << "Invalid command." << std::endl;
         }
     }

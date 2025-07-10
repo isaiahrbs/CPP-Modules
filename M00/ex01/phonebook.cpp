@@ -3,29 +3,29 @@
 #include <iomanip>
 
 PhoneBook::PhoneBook() {
-    currentIndex = 0;
-    totalContacts = 0;
+	currentIndex = 0;
+	totalContacts = 0;
 }
 
 void PhoneBook::addContact() {
-    std::string firstName, lastName, nickname, phoneNumber, darkestSecret;
+	std::string firstName, lastName, nickname, phoneNumber, darkestSecret;
 
-    std::cout << "First Name: ";
-    std::getline(std::cin, firstName);
-    std::cout << "Last Name: ";
-    std::getline(std::cin, lastName);
-    std::cout << "Nickname: ";
-    std::getline(std::cin, nickname);
-    std::cout << "Phone Number: ";
-    std::getline(std::cin, phoneNumber);
-    std::cout << "Darkest Secret: ";
-    std::getline(std::cin, darkestSecret);
+	std::cout << "First Name: ";
+	std::getline(std::cin, firstName);
+	std::cout << "Last Name: ";
+	std::getline(std::cin, lastName);
+	std::cout << "Nickname: ";
+	std::getline(std::cin, nickname);
+	std::cout << "Phone Number: ";
+	std::getline(std::cin, phoneNumber);
+	std::cout << "Darkest Secret: ";
+	std::getline(std::cin, darkestSecret);
 
-    contacts[currentIndex].setContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
+	contacts[currentIndex].setContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
 
 	currentIndex = (currentIndex + 1) % 8;
-    if (totalContacts < 8)
-        totalContacts++;
+	if (totalContacts < 8)
+		totalContacts++;
 }
 
 void PhoneBook::searchContact() const {
@@ -46,13 +46,14 @@ void PhoneBook::searchContact() const {
 	std::cout << "Enter index (0 to " << totalContacts - 1 << "): ";
 	int index;
 	std::cin >> index;
-	std::cin.ignore(); // ignore newline
-
 	if (std::cin.fail() || index < 0 || index >= totalContacts) {
 		std::cin.clear();
+		std::cin.ignore(1000, '\n');
 		std::cout << "Invalid index!" << std::endl;
 		return;
 	}
+	std::cin.ignore(); // ignore newline
+
 
 	contacts[index].displayFull();
 }

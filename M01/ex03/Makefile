@@ -1,5 +1,5 @@
 # Nom du programme à créer
-NAME = zombies
+NAME = call_of_Duty_black_ops_2_is_the_best_cod
 
 # Compilateur à utiliser
 CXX = c++
@@ -12,15 +12,16 @@ OBJ_DIR = obj
 
 # Liste des fichiers source
 SRCS = main.cpp \
-       Zombie.cpp \
-	   randomChump.cpp \
-	   newZombie.cpp
+       HumanA.cpp \
+	   HumanB.cpp \
+	   Weapon.cpp
 
 # Fichiers objets générés dans le dossier OBJ_DIR
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 # Fichiers d'en-tête
-HEADERS = Zombie.hpp
+HEADERS = HumanA.hpp \
+		  HumanB.hpp
 
 # Règle par défaut
 all: $(NAME)

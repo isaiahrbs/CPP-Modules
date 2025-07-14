@@ -11,13 +11,3 @@ Zombie::Zombie(std::string name) {
 Zombie::~Zombie() {
 	std::cout << name << " is destroyed 💀" << std::endl;
 }
-
-//returns a pointer to a new zombie obj
-Zombie* newZombie(std::string name) {
-	return new Zombie(name);
-}
-
-void randomChump(std::string name) {
-	Zombie zombie(name);
-	zombie.announce();
-}

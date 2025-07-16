@@ -2,16 +2,16 @@
 #include <iostream>
 
 void Harl::complain(const std::string& level) {
-    if (level == "DEBUG")
-        debug();
-    else if (level == "INFO")
-        info();
-    else if (level == "WARNING")
-        warning();
-    else if (level == "ERROR")
-        error();
-    else
-        std::cout << "Unknown level." << std::endl;
+	if (level == "DEBUG")
+		debug();
+	else if (level == "INFO")
+		info();
+	else if (level == "WARNING")
+		warning();
+	else if (level == "ERROR")
+		error();
+	else
+		std::cout << "Unknown level." << std::endl;
 }
 
 void Harl::debug() {

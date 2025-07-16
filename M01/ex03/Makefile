@@ -1,5 +1,5 @@
 # Nom du programme à créer
-NAME = call_of_Duty_black_ops_2_is_the_best_cod
+NAME = Weapon
 
 # Compilateur à utiliser
 CXX = c++

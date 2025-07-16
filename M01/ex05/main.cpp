@@ -7,4 +7,4 @@ int main() {
 	harl.complain("WARNING");
 	harl.complain("ERROR");
 	return 0;
-	}
+}

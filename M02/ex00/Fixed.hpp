@@ -12,9 +12,17 @@ class Fixed {
 	
 	public:
 		Fixed();
-		Fixed(const int n);
-		Fixed(const float n);
-		float toFloat()  const;
-		int toInt() const;
+		Fixed(const Fixed& objcopy);
+
+		/*
+			Si je copie la valeur d'un objet a un autre mais les 2 existe deja
+			ca appelle ca direction, ca s'appelle un operateur d'affectation
+		*/
+		Fixed &operator=(const Fixed& other);
 		~Fixed();
+
+		int getRawBits() const;
+		void setRawBits(const int raw);
 };
+
+#endif

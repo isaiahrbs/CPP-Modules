@@ -18,12 +18,12 @@ Fixed::Fixed(const float num) {
     _value = roundf(num * (1 << _fractionalBits));
 }
 
-Fixed::Fixed(const Fixed& objcopy) {
+Fixed::Fixed(const Fixed &objcopy) {
     //std::cout << "Copy constructor called" << std::endl;
     _value = objcopy._value;
 }
 
-Fixed& Fixed::operator=(const Fixed& other) {
+Fixed &Fixed::operator=(const Fixed &other) {
     //std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
         _value = other._value;
@@ -52,26 +52,26 @@ int Fixed::toInt() const {
 }
 
 // Opérateurs arithmétiques
-Fixed Fixed::operator+(const Fixed& other) const {
+Fixed Fixed::operator+(const Fixed &other) const {
     Fixed result;
     result._value = _value + other._value;
     return result;
 }
 
-Fixed Fixed::operator-(const Fixed& other) const {
+Fixed Fixed::operator-(const Fixed &other) const {
     Fixed result;
     result._value = _value - other._value;
     return result;
 }
 
-Fixed Fixed::operator*(const Fixed& other) const {
+Fixed Fixed::operator*(const Fixed &other) const {
     Fixed result;
     // Pour éviter la perte de précision, on cast en int64_t
     result._value = (int64_t)_value * (int64_t)other._value / (1 << _fractionalBits);
     return result;
 }
 
-Fixed Fixed::operator/(const Fixed& other) const {
+Fixed Fixed::operator/(const Fixed &other) const {
     Fixed result;
     // Pour éviter la perte de précision, on cast en int64_t
     result._value = ((int64_t)_value << _fractionalBits) / other._value;
@@ -79,7 +79,7 @@ Fixed Fixed::operator/(const Fixed& other) const {
 }
 
 // Incrémentation/Décrémentation
-Fixed& Fixed::operator++() { // pré-incrément
+Fixed &Fixed::operator++() { // pré-incrément
     ++_value;
     return *this;
 }
@@ -88,7 +88,7 @@ Fixed Fixed::operator++(int) { // post-incrément
     ++_value;
     return tmp;
 }
-Fixed& Fixed::operator--() { // pré-décrément
+Fixed &Fixed::operator--() { // pré-décrément
     --_value;
     return *this;
 }
@@ -99,56 +99,56 @@ Fixed Fixed::operator--(int) { // post-décrément
 }
 
 //MIN AND MAX
-Fixed& Fixed::min(Fixed& a, Fixed& b) {
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
 	if (a < b)
 		return a;
 	return b;
 }
 
-const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
 	if (a < b)
 		return a;
 	return b;
 }
 
-Fixed& Fixed::max(Fixed& a, Fixed& b) {
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
 	if (a > b)
 		return a;
 	return b;
 }
 
-const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 	if (a > b)
 		return a;
 	return b;
 }
 
 //COMPARISON
-bool Fixed::operator>(const Fixed& other) const { 
+bool Fixed::operator>(const Fixed &other) const { 
     return this->_value > other._value;
 }
 
-bool Fixed::operator<(const Fixed& other) const {
+bool Fixed::operator<(const Fixed &other) const {
     return this->_value < other._value;
 }
 
-bool Fixed::operator>=(const Fixed& other) const {
+bool Fixed::operator>=(const Fixed &other) const {
     return this->_value >= other._value;
 }
 
-bool Fixed::operator<=(const Fixed& other) const {
+bool Fixed::operator<=(const Fixed &other) const {
     return this->_value <= other._value;
 }
 
-bool Fixed::operator==(const Fixed& other) const {
+bool Fixed::operator==(const Fixed &other) const {
     return this->_value == other._value;
 }
 
-bool Fixed::operator!=(const Fixed& other) const {
+bool Fixed::operator!=(const Fixed &other) const {
     return this->_value != other._value;
 }
 
-std::ostream& operator<<(std::ostream& out, const Fixed& value) {
+std::ostream &operator<<(std::ostream &out, const Fixed &value) {
     out << value.toFloat();
     return out;
 }

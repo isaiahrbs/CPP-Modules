@@ -20,6 +20,14 @@ ClapTrap::ClapTrap(const std::string name) {
 	std::cout << "ClapTrap " << name << " has been created." << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &other) {
+    this->name = other.name;
+    this->hitPoints = other.hitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
+    std::cout << "ClapTrap " << name << " copied!" << std::endl;
+}
+
 void ClapTrap::attack(const std::string &target) {
 	if (hitPoints <= 0 || energyPoints <= 0) {
 		std::cout << "ClapTrap " << name << " can't attack, not enough energyPoints" << std::endl;
@@ -27,14 +35,6 @@ void ClapTrap::attack(const std::string &target) {
 	}
 	energyPoints = energyPoints - 1;
 	std::cout << "ClapTrap " << name << " attacks " << target << ", dealing " << attackDamage << " points of damage! HP: " << hitPoints << " | EP: " << energyPoints << std::endl;
-}
-
-ClapTrap::ClapTrap(const ClapTrap &other) {
-    this->name = other.name;
-    this->hitPoints = other.hitPoints;
-    this->energyPoints = other.energyPoints;
-    this->attackDamage = other.attackDamage;
-    std::cout << "ClapTrap " << name << " copied!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {

@@ -6,12 +6,13 @@ Animal::Animal() {
 
 Animal::Animal(const Animal &other) {
 	std::cout << "Animal copy has been created." << std::endl;
+	if (this != &other)
+		this->type = other.type;
 }
 
 Animal &Animal::operator=(const Animal &other) {
 	std::cout << "Animal assignment." << std::endl;
-	if (this != &other)
-		this->type = other.type;
+	this->type = other.type;
 	return *this;
 }
 

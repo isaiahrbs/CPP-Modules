@@ -11,7 +11,7 @@
 
 // Remplace toutes les occurrences de s1 par s2 dans le fichier filename
 int replaceAndWrite(const std::string& filename, const std::string& s1, const std::string& s2) {
-    std::ifstream inputFile(filename.c_str());
+    std::ifstream inputFile(filename.c_str()); // c.str convertit en const char* les strings car les constructeur de ifstream et ofstream prennent des const char*
     if (!inputFile.is_open()) {
         std::cerr << "Error: Cannot open the input file." << std::endl;
         return 1;
@@ -27,9 +27,9 @@ int replaceAndWrite(const std::string& filename, const std::string& s1, const st
         std::string result;
         size_t start = 0;
         while (true) {
-            size_t found = line.find(s1, start);
-            if (found == std::string::npos) {
-                result += line.substr(start);
+            size_t found = line.find(s1, start); // cherche le mot dans la ligne a partir de start
+            if (found == std::string::npos) { // npos = no position, si le mot nest pas trouvé
+                result += line.substr(start); // si je trouve pas le mot bah je met just la ligne entiere
                 break;
             }
 			/*
@@ -37,7 +37,7 @@ int replaceAndWrite(const std::string& filename, const std::string& s1, const st
 			jusquau debut du mot trouvé
 			en gros je fais found - start pour savoir combien de chars jai parcouru
 			*/
-            result += line.substr(start, found - start);
+            result += line.substr(start, found - start); // found - start pour le n eme character dla ligne
             result += s2;
             start = found + s1.length();
         }

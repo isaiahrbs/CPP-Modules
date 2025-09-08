@@ -15,6 +15,7 @@ int main() {
     Point outside(10.0f, 10.0f);   // À l'extérieur
     Point onEdge(2.5f, 0.0f);      // Sur un bord
     Point vertex(0.0f, 0.0f);      // Sur un sommet
+    Point peak(2.5f, 5.0f);
 
     // Test 1: Point à l'intérieur
     std::cout << "Point inside triangle: ";
@@ -40,6 +41,12 @@ int main() {
     // Test 4: Point sur un sommet
     std::cout << "Point on vertex: ";
     if (bsp(a, b, c, vertex))
+        std::cout << "YES" << std::endl;
+    else
+        std::cout << "NO" << std::endl;
+
+    std::cout << "On triangle Peak: ";
+    if (bsp(a, b, c, peak))
         std::cout << "YES" << std::endl;
     else
         std::cout << "NO" << std::endl;

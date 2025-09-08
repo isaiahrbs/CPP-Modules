@@ -2,6 +2,26 @@
 #include "Fixed.hpp"
 
 // Calcule l'aire signée d'un triangle (déterminant)
+/*
+    positif = a gauche
+    negatif = a droite
+    0 = sur la ligne
+*/
+
+/*
+     Y
+     ↑
+     |    C(2.5, 5)
+   5 |       /\
+     |      /  \
+     |     /    \
+   2 |    /   *  \
+     |   /(2.5,2) \
+   0 |  A-----------B  → X
+     0  0    2.5    5
+        A(0,0)     B(5,0)
+
+*/
 static Fixed sign(Point const &p1, Point const &p2, Point const &p3) {
     return (p1.getX() - p3.getX()) * (p2.getY() - p3.getY())
          - (p2.getX() - p3.getX()) * (p1.getY() - p3.getY());

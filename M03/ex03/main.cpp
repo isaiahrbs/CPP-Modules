@@ -55,12 +55,5 @@ int main()
         assign.whoAmI();
     }
 
-    std::cout << "\n=== DESTRUCTION ORDER TEST ===" << std::endl;
-    {
-        FragTrap f1("Destructor");
-        ScavTrap s1("DestructorScav");
-        ClapTrap c1("DestructorClap");
-    }
-
     return 0;
 }

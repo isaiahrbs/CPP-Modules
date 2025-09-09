@@ -27,7 +27,6 @@ DiamondTrap::~DiamondTrap() {
 
 void DiamondTrap::whoAmI() {
 	std::cout << "I am : " << this->name << " Inheriting from : " << ClapTrap::name << std::endl;
-	
 }
 
 void DiamondTrap::attack(const std::string &target) {

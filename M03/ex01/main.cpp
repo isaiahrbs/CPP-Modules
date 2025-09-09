@@ -1,28 +1,25 @@
 #include "ScavTrap.hpp"
 
-int	main() {
-	ClapTrap a("Bob");
-	a.attack("Fanta");
-	std::cout << "\n";
+int main() {
+	ClapTrap f("Fanta");
+	ClapTrap b("Bob");
 
-	ScavTrap b("Aymeric");
-	b.attack("Poo");
-	std::cout << "\n";
+	std::cout << std::endl;
 
-	ScavTrap c("Caillou");
-	c.attack("Pierre");
-	c.attack("Pierre");
-	c.attack("Pierre");
-	c.attack("Pierre");
-	c.attack("Pierre");
-	a = b;
-	a.attack("poo");
-	std::cout << "\n";
+	f.attack("Bob");
 
-	ClapTrap d("Bully");
-	d.takeDamage(100);
-	std::cout << "\n";
+	std::cout << std::endl;
+	ScavTrap d("Dimicouille");
+	ScavTrap i("Isa");
+	std::cout << std::endl;
 
-	c.guardGate();
-	std::cout << "\n";
+	std::cout << std::endl;
+	std::cout << std::endl;
+	d.attack("Isa");
+	std::cout << std::endl;
+	std::cout << std::endl;
+	i.takeDamage(20);
+	i.beRepaired(10);
+	i.guardGate();
+
 }

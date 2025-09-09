@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
 ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
 	if (this != &other) {
 		ClapTrap::operator=(other);
-		std::cout << "ScavTrap " << this->name << " destructed!" << std::endl;
+		std::cout << "ScavTrap " << this->name << " copied!" << std::endl;
 	}
 	return *this;
 }
@@ -42,6 +42,8 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
 ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap " << this->name << " destructed!" << std::endl;
 }
+
+// ----------------------------------------------------------------------------------//
 
 void ScavTrap::attack(const std::string &target) {
 	if (hitPoints <= 0 || energyPoints <= 0) {
@@ -53,5 +55,5 @@ void ScavTrap::attack(const std::string &target) {
 }
 
 void ScavTrap::guardGate() {
-	std::cout << "idk wtf i hae to insert here but guardgate is done" << std::endl;
+	std::cout << "Guardgate " << name << " function called." << std::endl;
 }

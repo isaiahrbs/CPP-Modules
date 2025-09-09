@@ -39,12 +39,5 @@ int main()
             f.attack("Enemy");
     }
 
-    std::cout << "\n=== DESTRUCTION ORDER TEST ===" << std::endl;
-    {
-        FragTrap f1("Destructor");
-        ScavTrap s1("DestructorScav");
-        ClapTrap c1("DestructorClap");
-    }
-
     return 0;
 }

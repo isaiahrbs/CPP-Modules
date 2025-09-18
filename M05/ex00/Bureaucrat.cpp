@@ -1,39 +1,23 @@
 #include "Bureaucrat.hpp"
 
 void Bureaucrat::incrementGrade() {
-	try {
-		if (_grade <= 1)
-			throw "Grade is already maxxed out.";
-		else {
-			_grade--;
-			throw "Added one point to grade!";
-		}
-	}
-	catch (const char* msg) {
-		std::cout << msg << std::endl;
-	}
+	if (_grade <= 1)
+		throw GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-	try {
-		if (_grade >= 150)
-			throw "Grade is too low.";
-		else {
-			_grade++;
-			throw "Removed a point to grade!";
-		}
-	}
-	catch (const char* msg) {
-		std::cout << msg << std::endl;
-	}
+	if (_grade >= 150)
+		throw GradeTooLowException();
+	_grade++;
 }
 
-void Bureaucrat::GradeTooHighException() const {
-	std::cout << "GRADE TOO HIGH!!!!" << std::endl;
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+	return "Grade too high!"; 
 }
 
-void Bureaucrat::radeTooLowException() const {
-	std::cout << "GRADE TOO LOW!!!!" << std::endl;
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+	return "Grade too low!";
 }
 
 std::string Bureaucrat::getName() const {
@@ -44,13 +28,19 @@ int Bureaucrat::getGrade() const {
 	return this->_grade;
 }
 
+
+
 Bureaucrat::Bureaucrat() : _name("DefaultBureaucrat"), _grade(40) {
 	std::cout << "Bureaucrat constructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
+	std::cout << "Bureaucrat " << _name << " constructor called." << std::endl;
+	if (grade < 1)
+		throw(GradeTooHighException());
+	else if (grade >= 150)
+		throw(GradeTooLowException());
 	_grade = grade;
-	std::cout << "Bureaucrat constructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name) {

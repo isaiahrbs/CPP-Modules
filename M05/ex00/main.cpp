@@ -3,54 +3,30 @@
 
 
 int main() {
-	Bureaucrat b1("Karim", 140);
-	
-	Bureaucrat b2;
-	Bureaucrat b3(b1);
-	Bureaucrat b4("test", 50);
-	
-	std::string name;
-	int grade;
-	//std::cout << b2 << std::endl;
-
-	// B2
-	grade = b2.getGrade();
-	name = b2.getName();
-	std::cout << "Name : " << name << std::endl;
-	std::cout << "Grade : " << grade << std::endl;
-
-	sleep(4);
-
-	for (int i = 0; i < 10; i++) {
-		b2.decrementGrade();
+	std::cout << "[--------------Test #1--------------]" << std::endl;
+	try {
+		Bureaucrat e("Eminem", 160);
 	}
-	
-	//std::cout << b3 << std::endl;
-		
-	sleep(4);
-
-	//B1
-	grade = b1.getGrade();
-	name = b1.getName();
-	std::cout << "Name : " << name << std::endl;
-	std::cout << "Grade : " << grade << std::endl;
-
-	for (int i = 0; i < 10; i++) {
-		b1.incrementGrade();
+	catch (const std::exception &e) {
+		std::cout << e.what() << std::endl;
 	}
 
-	//B3
-	grade = b3.getGrade();
-	name = b3.getName();
-	std::cout << "Grade : " << grade << std::endl;
-	std::cout << "Name : " << name << std::endl;
-
-	sleep(4);
-	b3 = b4;
-	grade = b3.getGrade();
-	name = b3.getName();
-	std::cout << "Final test" << std::endl;
-	std::cout << "Grade : " << grade << std::endl;
-	std::cout << "Name : " << name << std::endl;
+	std::cout << "[--------------Test #2--------------]" << std::endl;
+	try {
+		Bureaucrat l("Link", 160);
+	}
+	catch (const std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	
+	std::cout << "[--------------Test #3--------------]" << std::endl;
+	try {
+		Bureaucrat l("Zelda", 150);
+		l.decrementGrade();
+		// it skips this one because as soon as there is a throw, it goes to the catch block
+		Bureaucrat b("Bob", 170);
+	}
+	catch (const std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 }

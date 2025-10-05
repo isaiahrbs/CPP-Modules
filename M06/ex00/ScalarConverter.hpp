@@ -20,14 +20,15 @@ class ScalarConverter
 		static void printDouble(const std::string& literal);
 		
 		static void InvalidInput(const std::string& literal);
-
+		
+		ScalarConverter();
+		ScalarConverter(const std::string& target);
+		ScalarConverter(const ScalarConverter& other);
+		ScalarConverter& operator=(const ScalarConverter& other);
+		~ScalarConverter();
+		
 	public:
 		// ===== Canonical Form =====
-		ScalarConverter() = delete;
-		ScalarConverter(const std::string& target) = delete;
-		ScalarConverter(const ScalarConverter& other) = delete;
-		ScalarConverter& operator=(const ScalarConverter& other) = delete;
-		~ScalarConverter() = delete;
 
 		// ===== Setters =====
 		static void convert(const std::string& literal);

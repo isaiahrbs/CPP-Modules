@@ -1,0 +1,18 @@
+Je dois crée une classe nommé Array qui doit contenir des elements de type nommé T et ce template doit implementer les choses suivante:
+
+un constructor sans parametre, ce constructor crée un array vide.
+
+un constructor avec un parametre de type unsigned int N qui cree un array de N elements initialiser a default (je ne sais pas ce qu'ils veulent dire par default mais on verra)
+
+un constructor de copy.
+un operator d'assignement.
+Si je modifie le array original ou la copie ca ne doit pas
+affecter l'autre array.
+
+je DOIS utiliser l'operator new[] pour allouer de la mémoire. Je n'ai pas le droit d'alouer de la mémoire en avance, le program ne dois pas acceder a de la mémoire qu'on ne peux pas toucher comme la plus part des programme je ne sais pas pourquoi ils disent ca.
+
+Les elements peuvent etre acceder avec []
+
+quand j'accede a un element avec l'operator [] si je suis out of bound donc dehors des limite je dois lancer une exception std::exception donc il y aura des try catch block
+
+implementer une fonction qui retourne le nombre d'elements dans l'array, cette fonction ne prend aucun oarametre et ne peut pas modifier les valeurs dedans donc j'imagine que le return va etre de type size_t et je vais mettre un const a la fin du name de la fonction 

@@ -3,7 +3,7 @@
 #include "Array.hpp"
 
 template<typename T>
-Array<T>::Array() : array(0) {}
+Array<T>::Array() : array(0), len(0) {}
 
 template<typename T>
 Array<T>::Array(unsigned int n) : array(new T[n]), len(n) {}
@@ -11,10 +11,11 @@ Array<T>::Array(unsigned int n) : array(new T[n]), len(n) {}
 template<typename T>
 Array<T>::Array(const Array& other) {
     len = other.len;
-    array = new T[len];
+    if (len)
+        array = new T[len];
     for (size_t i = 0; i < len; i++) {
         array[i] = other.array[i];
-    } 
+    }
 }
 
 template<typename T>
@@ -28,11 +29,16 @@ Array<T>& Array<T>::operator=(const Array& other) {
         len = other.len;
         delete[] array;
         array = new T[len];
-        for (size_t = 0; i < len; i++) {
+        for (size_t i = 0; i < len; i++) {
             array[i] = other.array[i];
         }
     }
     return *this;
+}
+
+template<typename T>
+size_t Array<T>::size() const {
+    return len;
 }
 
 template<typename T>

@@ -30,16 +30,19 @@ public:
 	// ===== Setters =====
 
 	// ===== Getters =====
+	size_t size() const;
 
 	// ===== Abstract Functions =====
 
 	// ===== Other Classes/Types =====
-	class PassedArrayLimit : std::exception {
+	class PassedArrayLimit : public std::exception {
 		virtual const char* what() const throw(); 
-	}
+	};
 
 	// ===== Friends =====
 
 	// ===== Static Members =====
 
 };
+
+#include "Array.tpp"

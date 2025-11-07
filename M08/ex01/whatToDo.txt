@@ -1,2 +1,0 @@
-il reste just a finir la fonction shortestSpan
-et finir le multiple num ajouter machin truc la

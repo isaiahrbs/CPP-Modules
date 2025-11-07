@@ -5,7 +5,7 @@ Span::Span() : N(0) {}
 
 Span::Span(unsigned int n) : N(n) {}
 
-Span::Span(const Span& other) : N(other.N){}
+Span::Span(const Span& other) : N(other.N), list(other.list) {}
 
 Span& Span::operator=(const Span& other) {
 	if (this != &other) {
@@ -32,10 +32,24 @@ int Span::longestSpan() {
 	return (tmp.back() - tmp.front());
 }
 
+// je trie et ensuite je compare de droite à gauche
 int Span::shortestSpan() {
 	if (list.size() <= 1)
 		throw SpanEmptyException();
-	// LEFT OFF HERE!!!!
+	std::vector<int> tmp = list;
+	std::sort(tmp.begin(), tmp.end());
+	unsigned int num = tmp[1] - tmp[0];
+	for (unsinged int i = 0; i < tmp.size() - 1; i++) {
+		if ((tmp[i + 1] - tmp[i]) < num)
+			num = (tmp[i + 1] - tmp[i]);
+	}
+	return num;
+}
+
+void Span::addMultipleNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+	if (list.size() <= 1)
+		throw SpanEmptyException();
+	list.insert(list.end(), begin, end);
 }
 
 const char* Span::SpanFullException::what() const throw() {

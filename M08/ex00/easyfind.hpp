@@ -17,7 +17,6 @@ Utile pour les variables locales, mais éviter pour les types de retour de fonct
 */
 template<typename T>
 typename T::iterator easyfind(T& container, int value) {
-	auto it = std::find(container.begin(), container.end(), value);
-	// auto = typename T::iterator
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
 	return it;
 }

@@ -38,8 +38,8 @@ int Span::shortestSpan() {
 		throw SpanEmptyException();
 	std::vector<int> tmp = list;
 	std::sort(tmp.begin(), tmp.end());
-	unsigned int num = tmp[1] - tmp[0];
-	for (unsinged int i = 0; i < tmp.size() - 1; i++) {
+	int num = tmp[1] - tmp[0];
+	for (size_t i = 0; i < tmp.size() - 1; i++) {
 		if ((tmp[i + 1] - tmp[i]) < num)
 			num = (tmp[i + 1] - tmp[i]);
 	}

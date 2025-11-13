@@ -31,6 +31,7 @@ public:
 	~Span();
 
 	// ===== Setters =====
+	void addMultipleNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	void addNumber(int num);
 
 	// ===== Getters =====

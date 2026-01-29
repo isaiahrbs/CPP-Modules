@@ -16,7 +16,7 @@ class Span
 {
 private:
 	// ===== Private Members =====
-	unsigned int N;
+	unsigned int N;// max number inside of the list 
 	std::vector<int> list;
 
 protected:

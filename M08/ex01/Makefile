@@ -6,7 +6,7 @@ NAME = main
 CXX = c++
 
 # Flags de compilation
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 # Liste des fichiers source
 SRCS = main.cpp \

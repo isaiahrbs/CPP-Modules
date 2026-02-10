@@ -14,11 +14,10 @@ int main()
 	list.push_back(9000);
 	list.push_back(0);
 
-	std::vector<int>::iterator it = easyfind(list, 0);
 	/*
-		•c'est une meilleure approche car si j'ai `0` dans la liste et que je fais
-		- if (*it), ca ne va pas marcher
+		il trouve le chiffre dans la liste, easyfind c'est just un std::find() qui retourne un iterator avec le chiffre
 	*/
+	std::vector<int>::iterator it = easyfind(list, 0);
 	 if (it != list.end())
 		std::cout << "Found!" << std::endl;
 	else
@@ -29,7 +28,6 @@ int main()
 	std::vector<std::string> nameList;
 	nameList.push_back("42School");
 	nameList.push_back("Isaiah");
-	nameList.push_back("Lisa");
 	nameList.push_back("Dimitri NGUYEN GONG");
 
 	std::vector<std::string>::iterator pos = std::find(nameList.begin(), nameList.end(), "Dimicouille");

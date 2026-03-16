@@ -1,23 +1,44 @@
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <map>
+#include <exception>
 
+class BitcoinExchange {
+private:
+    std::map<std::string, float> _data;
 
-class bitcoinExchange {
-	private:
-		std::string _btcPath;
-		std::map<std::string, float> _container;
+public:
+    BitcoinExchange();
+    BitcoinExchange(const BitcoinExchange &src);
+    ~BitcoinExchange();
+    BitcoinExchange &operator=(const BitcoinExchange &src);
 
-	public:
-		bitcoinExchange();
-		bitcoinExchange(std::string btc);
-		bitcoinExchange& operator=(const bitcoinExchange& src);
+    void loadDatabase(const std::string& dbPath);
+    void processInput(const std::string& inputPath);
 
-		void build_data_base();
+    class CouldNotOpenFileException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+    };
 
-		class Error_DataBaseFile : public std::exeption {
-			public:
-				virtual const char *what() const throw();
-		};
+    class InvalidDateException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+    };
+
+    class NotAPositiveNumberException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+    };
+
+    class NumberTooLargeException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+    };
 };
+
+#endif

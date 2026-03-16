@@ -1,21 +1,18 @@
-#include <fstream>
-#include "bitcoin.hpp"
+#include "bitcoinExchange.hpp"
 
 int main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cout << "Error: You must provide 2 arguments" << std::endl;
-		return 1;
-	}
+    if (argc != 2) {
+        std::cout << "Error: could not open file." << std::endl;
+        return 1;
+    }
 
-	// call the constructor with argument
-	bitcoinExchange btc = bitcoinExchange(argv[1]);
+    try {
+        BitcoinExchange btc;
+        btc.loadDatabase("data.csv");
+        btc.processInput(argv[1]);
+    } catch (const std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
 
-	//
-	try {
-		// build the data base
-	}
-	catch (std::exception& e) {
-		std::cout << "Error: " << e.what() << std::endl;
-	}
-
+    return 0;
 }

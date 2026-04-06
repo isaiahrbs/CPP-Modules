@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv) {
     if (argc != 2) {
-        std::cout << "Error: could not open file." << std::endl;
+        std::cerr << "Usage: ./btc <input_file>" << std::endl;
         return 1;
     }
 
@@ -10,8 +10,9 @@ int main(int argc, char **argv) {
         BitcoinExchange btc;
         btc.loadDatabase("data.csv");
         btc.processInput(argv[1]);
-    } catch (const std::exception& e) {
-        std::cout << "Error: " << e.what() << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
     }
 
     return 0;
